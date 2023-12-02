@@ -10,8 +10,10 @@ class StreamersController < ApplicationController
     # client = Aws::S3::Client.new(region: region, credentials:credentials)
     # obj = client.get_object(bucket: 'maipenlife-demo-bucket', key: 'uploads/streamer/video/3/sample2.mp4')
     # @file = obj.public_url
-    @streamers = Streamer.all 
-    render json: ActiveModel::Serializer::CollectionSerializer.new(@streamers, serializer: StreamerSerializer).to_json
+
+    # @streamers = Streamer.all 
+    # render json: ActiveModel::Serializer::CollectionSerializer.new(@streamers, serializer: StreamerSerializer).to_json
+    @streamer = Streamer.last
   end
 
   def new
