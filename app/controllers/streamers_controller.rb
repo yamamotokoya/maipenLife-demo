@@ -1,7 +1,7 @@
 class StreamersController < ApplicationController
   require 'aws-sdk-s3'
 
-  def index 
+  def index
     # region = 'ap-northeast-1'
     # credentials = Aws::Credentials.new(
     #   ENV['AWS_ACCESS_KEY'],
@@ -11,8 +11,8 @@ class StreamersController < ApplicationController
     # obj = client.get_object(bucket: 'maipenlife-demo-bucket', key: 'uploads/streamer/video/3/sample2.mp4')
     # @file = obj.public_url
 
-    # @streamers = Streamer.all 
-    # render json: ActiveModel::Serializer::CollectionSerializer.new(@streamers, serializer: StreamerSerializer).to_json
+    @streamers = Streamer.all
+    render json: ActiveModel::Serializer::CollectionSerializer.new(@streamers, serializer: StreamerSerializer).to_json
     @streamer = Streamer.last
   end
 
@@ -26,7 +26,7 @@ class StreamersController < ApplicationController
     redirect_to streamers_path
   end
 
-  private 
+  private
    def streamer_params
     params.require(:streamer).permit(:name, :x_url, :video)
    end
