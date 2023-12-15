@@ -10,14 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_11_21_030725) do
+ActiveRecord::Schema.define(version: 2023_12_15_052733) do
 
   create_table "streamers", force: :cascade do |t|
     t.string "name", null: false
     t.string "x_url", null: false
-    t.string "video", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "videos", force: :cascade do |t|
+    t.string "video_url"
+    t.integer "streamer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["streamer_id"], name: "index_videos_on_streamer_id"
   end
 
 end

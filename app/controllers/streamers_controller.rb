@@ -28,6 +28,6 @@ class StreamersController < ApplicationController
 
   private
    def streamer_params
-    params.require(:streamer).permit(:name, :x_url, :video)
+    params.require(:streamer).permit(:name, :x_url)
    end
 end

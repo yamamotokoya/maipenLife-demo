@@ -1,6 +1,5 @@
 class Streamer < ApplicationRecord
-  mount_uploader :video, VideoUploader
+  has_many :videos
   validates :name, presence: true
   validates :x_url, presence: true
-  validates :video, presence: true
 end
