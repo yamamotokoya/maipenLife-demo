@@ -1,8 +1,19 @@
 <%= form_with model: @streamer, url: streamers_path, local: true do |f| %>
-   <%= f.label "名前" %>
-   <%= f.text_field :name %>
-   <%= f.label "X(Twitter)アカウントURL"%>
-   <%= f.text_field :x_url %>
-   <%= f.label "動画のアップロード" %>
+   <div>
+      <%= f.label "名前" %>
+      <%= f.text_field :name %>
+   </div>
+   <div>
+      <%= f.label "X(Twitter)アカウントURL"%>
+      <%= f.text_field :x_url %>
+   </div>
+
+   <%= f.fields_for :videos do |fv| %>
+      <div>
+         <%= fv.label "動画のアップロード" %>
+         <%= fv.file_field :video_url %>
+      </div>
+   <%end%>
+   
    <%= f.submit "アップロード" %>
 <% end %>

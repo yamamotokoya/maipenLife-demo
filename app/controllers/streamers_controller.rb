@@ -18,6 +18,7 @@ class StreamersController < ApplicationController
 
   def new
     @streamer = Streamer.new
+    @streamer.videos.build
   end
 
   def create
@@ -28,6 +29,6 @@ class StreamersController < ApplicationController
 
   private
    def streamer_params
-    params.require(:streamer).permit(:name, :x_url)
+    params.require(:streamer).permit(:name, :x_url, videos_attributes[:video_url])
    end
 end
