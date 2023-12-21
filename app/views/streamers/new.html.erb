@@ -13,6 +13,10 @@
          <%= fv.label "動画のアップロード" %>
          <%= fv.file_field :video_url %>
       </div>
+      <div>
+         <%= fv.label "動画の説明文" %>
+         <%= fv.file_area :content %>
+      </div>
    <%end%>
    
    <%= f.submit "アップロード" %>
