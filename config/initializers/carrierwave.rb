@@ -2,7 +2,7 @@
 require 'carrierwave/storage/fog'
 
 CarrierWave.configure do |config|
-  if Rails.env.development? || Rails.env.production?# 本番環境の場合
+  if Rails.env.production?# 本番環境の場合
     config.fog_provider = 'fog/aws'
     config.fog_directory  = 'maipenlife-demo-bucket'
     config.fog_public = false

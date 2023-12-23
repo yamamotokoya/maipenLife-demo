@@ -1,0 +1,9 @@
+<div>
+  <%@streamers.each do |s|%>
+    <ul class="list-group">
+      <li class="list-group-item"><%=link_to s.name, edit_streamer_path(s) %></li>
+      <li class="list-group-item"><%= s.x_url%></li>
+      <li class="list-group-item"><%=link_to "動画追加", new_video_path(s) %></li>
+    </ul>
+  <%end%>
+</div>
