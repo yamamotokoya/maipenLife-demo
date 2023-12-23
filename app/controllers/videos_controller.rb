@@ -18,6 +18,14 @@ class VideosController < ApplicationController
     redirect_to all_streamers_path
   end
 
+  def show 
+    @video = Video.find(params[:id])
+  end
+
+  def edit 
+    @video = Video.find(params[:id])
+  end
+
   private 
     def video_params
       params.require(:video).permit(:video_url, :content, :streamer_id)

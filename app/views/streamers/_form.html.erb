@@ -11,6 +11,7 @@
     <% streamer.videos.each do |video| %>
       <div>
         <%= video.video_url %>
+        <%= link_to "編集", edit_video_path(video) %>
       </div>
     <% end %>
    <%= f.submit submit_text %>

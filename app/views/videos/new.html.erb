@@ -1,14 +1,1 @@
-<%= form_with model: @video, local: true do |f| %>
-  <div>
-    <%= f.label "新しい動画をアップロードする" %>
-    <%= f.file_field :video_url %>
-  </div>
-  <div>
-    <%= f.label "動画の説明文" %>
-    <%= f.text_area :content %>
-  </div>
-  <%= f.hidden_field :streamer_id, :value => @streamer_id %>
-  <div>
-    <%= f.submit "動画を追加する"%>
-  </div>
-<% end %>
+<%= render partial: "form", locals: {video: @video, streamer_id: @streamer_id} %>
