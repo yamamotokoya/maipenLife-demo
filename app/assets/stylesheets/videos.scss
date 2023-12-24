@@ -1,3 +1,32 @@
 // Place all the styles related to the videos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.video-list {
+  margin-top: 1rem;
+}
+.btn {
+  position: absolute;
+  bottom: 0.3rem;
+  a {
+    color: white;
+    &:hover {
+      text-decoration: none;
+      color: black;
+    }
+  }
+}
+
+.video-delete-btn {
+  position: absolute;
+  right: 1rem;
+}
+
+.video-edit-btn {
+  position: absolute;
+  right: 6rem;
+}
+
+.video-submit-btn {
+  margin-top: 1rem;
+}

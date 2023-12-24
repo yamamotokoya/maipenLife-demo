@@ -8,11 +8,18 @@
       <%= f.text_field :x_url %>
    </div>
    <% streamer.videos.present? %>
+   <ul class="list-group video-list">
     <% streamer.videos.each do |video| %>
-      <div>
+      <li class="list-group-item">
         <%= video.video_url %>
-        <%= link_to "編集", edit_video_path(video) %>
-      </div>
+        <button type="button" class="btn btn-success video-edit-btn">
+          <%= link_to "編集", edit_video_path(video) %>
+        </button>
+        <button type="button" class="btn btn-danger video-delete-btn">
+          <%= link_to "削除", video_path(video), method: :delete, data: {confirm: "削除してもよろしいですか？"}%>
+        </button>
+      </li>
     <% end %>
-   <%= f.submit submit_text %>
+    </ul>
+   <%= f.submit submit_text, class: "submit-btn video-submit-btn" %>
 <% end %>
