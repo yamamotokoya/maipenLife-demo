@@ -1,3 +1,15 @@
 // Place all the styles related to the streamers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.streamer-delete-btn {
+  position: absolute;
+  right: 1rem;
+  bottom: 0.3rem;
+  a {
+    color: white;
+    &:hover {
+      text-decoration: none;
+      color: black;
+    }
+  }
+}

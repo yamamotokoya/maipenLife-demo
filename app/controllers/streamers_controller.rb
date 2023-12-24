@@ -31,6 +31,12 @@ class StreamersController < ApplicationController
     @streamers = Streamer.all
   end
 
+  def destroy
+    @streamer = Streamer.find(params[:id])
+    @streamer.destroy 
+    redirect_to request.referer
+  end
+
   private
    def streamer_params
     params.require(:streamer).permit(:name, :x_url, videos_attributes: [:video_url, :content])

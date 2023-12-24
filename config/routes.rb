@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: 'streamers#new'
-  resources :streamers, only: [:index, :new, :create, :edit, :update]
+  resources :streamers, only: [:index, :new, :create, :edit, :update, :destroy]
   get 'all_streamers', to: 'streamers#all_streamers'
   resources :videos, only: [:index, :create, :show, :edit, :update]
   get 'new/:id', to: "videos#new", as: 'new_video'
