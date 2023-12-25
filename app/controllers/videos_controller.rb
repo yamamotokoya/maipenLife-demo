@@ -36,6 +36,11 @@ class VideosController < ApplicationController
     redirect_to request.referer
   end
 
+  def show_videos_ccollection 
+    @videos = Video.where(streamer_id: params[:streamer_id])
+    render json: @videos
+  end
+
   private 
     def video_params
       params.require(:video).permit(:video_url, :content, :streamer_id)
