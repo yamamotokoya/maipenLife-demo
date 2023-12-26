@@ -38,7 +38,7 @@ class VideosController < ApplicationController
 
   def show_videos_ccollection 
     @videos = Video.where(streamer_id: params[:streamer_id])
-    render json: @videos
+    render json: ActiveModel::Serializer::CollectionSerializer.new(@videos, serializer: VideoSerializer).to_json
   end
 
   private 
