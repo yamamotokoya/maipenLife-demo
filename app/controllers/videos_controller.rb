@@ -36,7 +36,7 @@ class VideosController < ApplicationController
     redirect_to request.referer
   end
 
-  def show_videos_ccollection 
+  def video_collection 
     @videos = Video.where(streamer_id: params[:streamer_id])
     render json: ActiveModel::Serializer::CollectionSerializer.new(@videos, serializer: VideoSerializer).to_json
   end
