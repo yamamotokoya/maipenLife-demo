@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   get 'all_streamers', to: 'streamers#all_streamers'
   resources :videos, only: [:index, :create, :show, :edit, :update, :destroy]
   get 'new/:id', to: "videos#new", as: 'new_video'
-  get 'video-collection/:id', to: "videos#video_collection", as: 'video_collection'
+  get 'videos/collection/:id', to: "videos#video_collection", as: 'video_collection'
 end
