@@ -1,11 +1,8 @@
 class StreamersController < ApplicationController
-  require 'aws-sdk-s3'
 
-  def index
-    @streamers = Streamer.all
-    render json: ActiveModel::Serializer::CollectionSerializer.new(@streamers, serializer: StreamerSerializer).to_json
+  def index 
+    
   end
-
   def new
     @streamer = Streamer.new
     @streamer.videos.build
@@ -13,28 +10,41 @@ class StreamersController < ApplicationController
 
   def create
     @streamer = Streamer.new(streamer_params)
+
     @streamer.save
-    redirect_to streamers_path
+    redirect_to root_path
   end
 
-  def edit 
+  def show 
+    @streamer = Streamer.find(params[:id])
+    @videos = @streamer.videos
+
+    render json: ActiveModel::Serializer::CollectionSerializer.new(
+      @videos, 
+      serializer: VideoSerializer
+    ).to_json
+  end
+
+  def edit
     @streamer = Streamer.find(params[:id])
   end
 
   def update
     @streamer = Streamer.find(params[:id])
     @streamer.update(streamer_params)
-    redirect_to all_streamers_path
-  end
 
-  def all_streamers 
-    @streamers = Streamer.all
+    redirect_to all_streamers_path
   end
 
   def destroy
     @streamer = Streamer.find(params[:id])
     @streamer.destroy 
+
     redirect_to request.referer
+  end
+  
+  def all_streamers 
+    @streamers = Streamer.all
   end
 
   private

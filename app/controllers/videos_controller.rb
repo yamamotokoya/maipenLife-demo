@@ -1,5 +1,4 @@
 class VideosController < ApplicationController
-  before_action :set_video, only: [:show, :edit, :update, :destroy]
 
   def index
     @videos = Video.all 
@@ -21,28 +20,23 @@ class VideosController < ApplicationController
   end
 
   def show 
+    @video = Video.find(params[:id])
   end
 
   def edit 
+    @video = Video.find(params[:id])
   end
 
   def update 
+    @video = Video.find(params[:id])
     @video.update(video_params)
     redirect_to edit_streamer_path(@video.streamer_id)
   end
 
   def destroy 
+    @video = Video.find(params[:id])
     @video.delete 
     redirect_to request.referer
-  end
-
-  def video_collection 
-    @videos = Video.where(streamer_id: params[:id])
-    
-    render json: ActiveModel::Serializer::CollectionSerializer.new(
-      @videos, 
-      serializer: VideoSerializer
-    ).to_json
   end
 
   private 
@@ -50,7 +44,4 @@ class VideosController < ApplicationController
       params.require(:video).permit(:video_url, :content, :streamer_id)
     end
 
-    def set_video 
-      @video = Video.find(params[:id])
-    end
 end
