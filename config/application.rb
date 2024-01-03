@@ -16,7 +16,7 @@ module UraakaDemoApi
         origins "*"
         resource "*",
           headers: :any,
-          methods: [:get, :options, :head]
+          methods: [:get, :options, :head, :post]
       end
     end
 
