@@ -11,8 +11,10 @@ class Streamer < ApplicationRecord
     or(where("x_url LIKE ?", "%#{word}%")).
     or(where("content LIKE ?", "%#{word}%"))
   end
+
   scope :videos_join, -> { joins(:videos) }
-  scope :column_select, -> { select('streamers.name, streamers.x_url, streamers.avatar, videos.video_url, videos.content')}
+  
+  scope :column_select, -> { select('streamers.id, streamers.name, streamers.x_url, streamers.avatar, videos.id,  videos.video_url, videos.content, videos.streamer_id')}
 
   scope :free_word_search, ->(word) do
     videos_join.search(word).column_select
