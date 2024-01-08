@@ -3,7 +3,7 @@ class SearchController < ApplicationController
   
   def search 
     word = params[:word]
-    @data = Streamer.free_word_search(word)
+    @data = Video.free_word_search(word)
     render json: @data
   end
 end
