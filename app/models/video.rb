@@ -3,6 +3,15 @@ class Video < ApplicationRecord
   belongs_to :streamer
 
   scope :search, ->(word) do
-    where("content LIKE ?", "%#{word}%")
+    where("name LIKE ?", "%#{word}%").
+    or(where("x_url LIKE ?", "%#{word}%")).
+    or(where("content LIKE ?", "%#{word}%"))
   end
+
+  scope :streamer_joins, -> {joins(:streamer) }
+
+  scope :free_word_search, ->(word) do
+    streamer_joins.search(word)
+  end
+
 end
