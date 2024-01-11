@@ -1,0 +1,2 @@
+class RootAdminUser < ApplicationRecord
+end
