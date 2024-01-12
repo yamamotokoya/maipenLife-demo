@@ -1,0 +1,29 @@
+// Place all the styles related to the first_login controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.first_login_form {
+  margin-top: 2rem;
+  text-align: center;
+  position: relative;
+
+  &__password_field {
+    width: 80%;
+    padding: 20px;
+    outline: none;
+    border-radius: 100px;
+  }
+
+  &__submit {
+    position: absolute;
+    left: 15%;
+    top: 100px;
+    width: 15%;
+    height: 60%;
+    background-color: lightskyblue;
+    border-radius: 100px;
+    color: white;
+    outline: none;
+  }
+}
+

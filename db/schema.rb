@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_01_11_023522) do
+ActiveRecord::Schema.define(version: 2024_01_12_043206) do
 
-  create_table "root_admin_users", force: :cascade do |t|
+  create_table "admin_users", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "password_digest"

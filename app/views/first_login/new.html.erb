@@ -1,0 +1,7 @@
+<%= form_with url: first_login_index_path, local: true, class: "first_login_form" do |form| %>
+
+  <%= form.password_field :password, placeholder: "PASWORD", class: "first_login_form__password_field" %>
+
+  <%= form.submit "送信", class: "first_login_form__submit" %>
+  
+<% end %>
