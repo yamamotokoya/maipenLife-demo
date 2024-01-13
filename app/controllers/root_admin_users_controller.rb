@@ -1,4 +1,8 @@
 class RootAdminUsersController < ApplicationController
+  
+  def index 
+  end
+
   def new 
     @admin = AdminUser.new
   end

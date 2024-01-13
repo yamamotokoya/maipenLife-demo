@@ -75,3 +75,4 @@ gem 'active_model_serializers', '~> 0.10.0'
 gem 'rack-cors'
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.3.1'
+gem "bulma-rails", "~> 0.8.0"

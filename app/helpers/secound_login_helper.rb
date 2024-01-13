@@ -18,9 +18,13 @@ module SecoundLoginHelper
     current_user.root_admin?
   end
 
+  def admin_user? 
+    current_user.admin?
+  end
+
   def redirect_after_loggedin 
     if root_admin_user?
-      redirect_to new_root_admin_user_path 
+      redirect_to root_admin_users_path 
     else
       redirec_to all_streamers_path
     end

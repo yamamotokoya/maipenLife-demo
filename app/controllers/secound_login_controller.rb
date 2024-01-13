@@ -1,5 +1,6 @@
 class SecoundLoginController < ApplicationController
   before_action :check_permission
+  
   def new
   end
 

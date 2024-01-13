@@ -1,8 +1,9 @@
 class StreamersController < ApplicationController
+  before_action :check_admin, except: :show
 
   def index 
-    
   end
+  
   def new
     @streamer = Streamer.new
     @streamer.videos.build
@@ -50,5 +51,9 @@ class StreamersController < ApplicationController
   private
    def streamer_params
     params.require(:streamer).permit(:name, :x_url, :avatar, videos_attributes: [:video_url, :content])
+   end
+
+   def check_admin
+    redirect_to request.referer unless admin_user?
    end
 end
