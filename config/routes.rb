@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :root_admin_users, only: [:index,:new, :create]
   resources :first_login, only: [:new, :create]
   resources :secound_login, only: [:new, :create]
+  resources :admin_users
   get 'new/:id', to: "videos#new", as: 'new_video'
   post 'search', to: 'search#search'
 end

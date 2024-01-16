@@ -1,0 +1,10 @@
+<ul class="list-group admin-users-list">
+  <% @admins.each do |admin| %>
+    <li class="list-group-item admin-users-list__item">
+      <%= admin.name %>
+      <button type="button" class="btn btn-success admin-users-list__link-btn">
+        <%= link_to "詳細",admin_user_path(admin) %>
+      </button>
+    </li>
+  <% end %>
+</ul>

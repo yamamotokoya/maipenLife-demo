@@ -1,4 +1,4 @@
-<%= form_with model: @admin, url: root_admin_users_path, local: true do |form| %>
+<%= form_with model: @admin, url: admin_users_path, local: true do |form| %>
   <% if @admin.errors.any? %>
     <strong><%= @admin.errors.count %>個のエラーがあります。</strong>
     <ul>

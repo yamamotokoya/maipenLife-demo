@@ -1,0 +1,13 @@
+<h4 class="admin-user"><%= @admin.name %></h4>
+
+<ul class="list-group">
+  <li class="list-group-item">
+    Email: <%= @admin.email %>
+  </li>
+  <li class="list-group-item">
+    登録日: <%= @admin.created_at.to_s(:datetime_jp) %>
+  </li>
+</ul>
+<button type="button" class="btn btn-info">
+  <%= link_to "編集", edit_admin_user_path(@admin)%>
+</button>
