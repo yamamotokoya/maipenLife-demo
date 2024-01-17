@@ -1,27 +1,35 @@
+<h4>配信者登録フォーム</h4>
+
 <%= form_with model: @streamer, url: streamers_path, local: true do |f| %>
-   <div>
+
+   <div class="form-group">
       <%= f.label "名前" %>
-      <%= f.text_field :name %>
+      <%= f.text_field :name, class: "form-control" %>
    </div>
-   <div>
+
+   <div class="form-group">
       <%= f.label "アバター" %>
-      <%= f.file_field :avatar %>
+      <%= f.file_field :avatar, class: "form-control" %>
    </div>
-   <div>
+
+   <div class="form-group">
       <%= f.label "X(Twitter)アカウントURL"%>
-      <%= f.text_field :x_url %>
+      <%= f.text_field :x_url, class: "form-control" %>
    </div>
 
    <%= f.fields_for :videos do |fv| %>
-      <div>
+      <div class="form-group">
          <%= fv.label "動画のアップロード" %>
-         <%= fv.file_field :video_url %>
+         <%= fv.file_field :video_url, class: "form-control" %>
       </div>
-      <div>
+
+      <div class="form-group">
          <%= fv.label "動画の説明文" %>
-         <%= fv.text_area :content %>
+         <%= fv.text_area :content, class: "form-control" %>
       </div>
    <%end%>
    
    <%= f.submit "アップロード" %>
 <% end %>
+
+<%= render partial: "shared/back_to_menu_btn" %>

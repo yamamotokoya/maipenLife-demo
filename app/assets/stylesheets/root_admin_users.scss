@@ -8,3 +8,19 @@
     margin-top: 2rem;
   }
 }
+
+.back-to-menu-btn {
+  margin-top: 2rem;
+  background-color: azure;
+  padding: .3rem;
+  border-radius: 20px;
+
+  a {
+    color: black;
+  }
+
+  a:hover {
+    text-decoration: none;
+    color: blue;
+  }
+}

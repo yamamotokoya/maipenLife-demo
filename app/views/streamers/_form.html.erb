@@ -1,17 +1,20 @@
 <%= form_with model: streamer, local: true do |f| %>
-   <div>
+   <div class="form-group">
       <%= f.label "名前" %>
-      <%= f.text_field :name %>
+      <%= f.text_field :name, class: "form-control" %>
    </div>
-   <div>
+
+   <div class="form-group">
       <%= f.label "アバター" %>
-      <%= f.file_field :avatar %>
+      <%= f.file_field :avatar, class: "form-control" %>
    </div>
-   <div>
+
+   <div class="form-group">
       <%= f.label "X(Twitter)アカウントURL"%>
-      <%= f.text_field :x_url %>
+      <%= f.text_field :x_url, class: "form-control" %>
    </div>
    <% streamer.videos.present? %>
+   <h5>登録動画一覧</h5>
    <ul class="list-group video-list">
     <% streamer.videos.each do |video| %>
       <li class="list-group-item">
@@ -27,3 +30,5 @@
     </ul>
    <%= f.submit submit_text, class: "submit-btn video-submit-btn" %>
 <% end %>
+
+<%= render partial: "shared/back_to_menu_btn" %>
