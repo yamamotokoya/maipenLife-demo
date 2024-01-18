@@ -43,7 +43,7 @@ class AdminUsersController < ApplicationController
   end
 
   def check_root_admin
-    redirec_to request.referer unless root_admin_user? 
+    redirect_to request.referer unless root_admin_user? 
   end
 
   def set_id 

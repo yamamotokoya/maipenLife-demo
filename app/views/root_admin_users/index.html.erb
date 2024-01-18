@@ -13,3 +13,7 @@
     <%= link_to "管理人一覧", admin_users_path %>
   </li>
 </ul>
+
+<button>
+  <%= link_to "ログアウト", root_admin_user_path(current_user), method: :delete %>
+</button>

@@ -3,7 +3,7 @@ class StreamersController < ApplicationController
 
   def index 
   end
-  
+
   def new
     @streamer = Streamer.new
     @streamer.videos.build
@@ -13,7 +13,12 @@ class StreamersController < ApplicationController
     @streamer = Streamer.new(streamer_params)
 
     @streamer.save
-    redirect_to root_path
+
+    if root_admin_user?
+      redirect_to root_admin_users_path
+    else
+      redirect_to all_streamers_path
+    end
   end
 
   def show 
@@ -54,6 +59,6 @@ class StreamersController < ApplicationController
    end
 
    def check_admin
-    redirect_to request.referer unless admin_user?
+    redirect_to root_path unless admin_loggedin?
    end
 end

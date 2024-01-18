@@ -26,7 +26,13 @@ module SecoundLoginHelper
     if root_admin_user?
       redirect_to root_admin_users_path 
     else
-      redirec_to all_streamers_path
+      redirect_to all_streamers_path
     end
+  end
+
+  def logout
+      session[:permission] = false 
+      session[:admin_user_id] = nil
+      @current_user = nil 
   end
 end

@@ -1,5 +1,5 @@
 class RootAdminUsersController < ApplicationController
-  
+
   def index 
   end
 
@@ -17,6 +17,13 @@ class RootAdminUsersController < ApplicationController
       redirect_to root_path
     else
       redirect_to root_path 
+    end
+  end
+
+  def destroy 
+    if admin_loggedin? 
+      logout
+      redirect_to new_first_login_path
     end
   end
 

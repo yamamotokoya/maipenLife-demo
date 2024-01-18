@@ -46,7 +46,7 @@ class VideosController < ApplicationController
     end
 
     def check_admin
-      redirect_to request.referer unless admin_user?
+      redirect_to root_path unless admin_loggedin?
     end
 
 end
