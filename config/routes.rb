@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :admin_users
   get 'new/:id', to: "videos#new", as: 'new_video'
   post 'search', to: 'search#search'
-  get 'return_stremaers_videos/:id', to: "api#return_streamers_videos"
+  get 'return_streamers_videos/:id', to: "api#return_streamers_videos"
   get 'return_videos', to: "api#return_videos"
   post 'return_search_result', to: "api#return_search_result"
 end
