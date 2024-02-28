@@ -7,7 +7,7 @@ class SecoundLoginController < ApplicationController
   def create
     admin_user = AdminUser.find_by(email: params[:email])
 
-    if admin_user && admin_user.authenticate(params[:password])
+    if admin_user && admin_user.authenticate(params[:password]) && admin_user.root_admin?
 
       admin_login(admin_user)
       current_user
