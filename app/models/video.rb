@@ -1,6 +1,7 @@
 class Video < ApplicationRecord
   mount_uploader :video_url, VideoUploader
   belongs_to :streamer
+  has_many :likes
 
   scope :search, ->(word) do
     where("name LIKE ?", "%#{word}%").
