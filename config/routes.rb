@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   resources :first_login, only: [:new, :create]
   resources :secound_login, only: [:new, :create]
   resources :admin_users
-  resources :likes, only: [:create, :destroy]
+  post 'likes', to: "likes#create"
+  delete 'likes/:id', to: "likes#destroy"
   get 'new/:id', to: "videos#new", as: 'new_video'
   post 'search', to: 'search#search'
   get 'return_streamers_videos/:id', to: "api#return_streamers_videos"
