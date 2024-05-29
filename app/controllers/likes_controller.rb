@@ -1,5 +1,6 @@
 class LikesController < ApplicationController
-
+  protect_from_forgery 
+  
   def create 
     like = Like.new(like_params)
 
