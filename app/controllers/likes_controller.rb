@@ -1,6 +1,6 @@
 class LikesController < ApplicationController
   protect_from_forgery 
-  
+
   def create 
     like = Like.new(like_params)
 
@@ -20,7 +20,7 @@ class LikesController < ApplicationController
   private 
   
   def like_params
-    params.require(:like).permit(:video_id)
+    params.permit(:video_id)
   end
   
 end
