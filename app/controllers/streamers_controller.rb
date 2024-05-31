@@ -1,5 +1,5 @@
 class StreamersController < ApplicationController
-  before_action :check_admin, except: :show
+  before_action :check_permission
 
   def index 
   end
@@ -12,13 +12,12 @@ class StreamersController < ApplicationController
   def create
     @streamer = Streamer.new(streamer_params)
 
-    @streamer.save
-
-    if root_admin_user?
-      redirect_to root_admin_users_path
+    if @streamer.save
+      redirec_to root_path 
     else
-      redirect_to all_streamers_path
+      render :new
     end
+    
   end
 
   def show 
@@ -60,5 +59,9 @@ class StreamersController < ApplicationController
 
    def check_admin
     redirect_to root_path unless admin_loggedin?
+   end
+
+   def check_permission 
+    redirect_to first_login_path unless session[:permission]
    end
 end

@@ -4,7 +4,7 @@ class FirstLoginController < ApplicationController
     password = params[:password]
 
     if login?(password)
-      redirect_to new_secound_login_path
+      redirect_to root_path
     else
       render :new
     end
