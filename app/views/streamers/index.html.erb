@@ -1,1 +1,15 @@
-<div>hello world!!</div>
+<h2 class="root-admin-menu__title">Root管理人 MENU</h2>
+<ul class="list-group root-admin-menu">
+  <li class="list-group-item">
+    <%= link_to "配信者登録フォーム", new_streamer_path %>
+  </li>
+  <li class="list-group-item">
+    <%= link_to "配信者一覧", all_streamers_path %>
+  </li>
+  <li class="list-group-item">
+    <%= link_to "管理人登録フォーム", new_admin_user_path %>
+  </li>
+  <li class="list-group-item">
+    <%= link_to "管理人一覧", admin_users_path %>
+  </li>
+</ul>
