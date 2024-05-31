@@ -1,5 +1,5 @@
 class AdminUsersController < ApplicationController
-  before_action :check_root_admin
+  # before_action :check_root_admin
   before_action :set_id, only: [:show, :edit, :update, :destroy]
 
   def index 
