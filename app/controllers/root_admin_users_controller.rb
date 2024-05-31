@@ -13,7 +13,7 @@ class RootAdminUsersController < ApplicationController
     @admin.admin = true 
     @admin.root_admin = true
 
-    if @root_admin.save
+    if @admin.save
       redirect_to root_path
     else
       redirect_to root_path 
