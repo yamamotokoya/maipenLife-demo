@@ -62,6 +62,6 @@ class StreamersController < ApplicationController
    end
 
    def check_permission 
-    redirect_to first_login_path unless session[:permission]
+    redirect_to new_login_path unless session[:permission]
    end
 end
