@@ -1,4 +1,4 @@
-class FirstLoginController < ApplicationController
+class LoginController < ApplicationController
 
   def create 
     password = params[:password]

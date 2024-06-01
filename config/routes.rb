@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'all_streamers', to: 'streamers#all_streamers'
   resources :videos, only: [:index, :create, :show, :edit, :update, :destroy]
   resources :root_admin_users, only: [:index,:new, :create, :destroy]
-  resources :first_login, only: [:new, :create]
+  resources :login, only: [:new, :create]
   resources :secound_login, only: [:new, :create]
   resources :admin_users
   post 'likes', to: "likes#create"
