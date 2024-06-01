@@ -1,2 +1,2 @@
-module FirstLoginHelper
+module LoginHelper
 end
