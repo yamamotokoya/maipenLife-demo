@@ -1,6 +1,5 @@
 class StreamersController < ApplicationController
-  before_action :check_permission
-
+  
   def index 
   end
 
@@ -55,13 +54,5 @@ class StreamersController < ApplicationController
   private
    def streamer_params
     params.require(:streamer).permit(:name, :x_url, :avatar, videos_attributes: [:video_url, :content])
-   end
-
-   def check_admin
-    redirect_to root_path unless admin_loggedin?
-   end
-
-   def check_permission 
-    redirect_to new_login_path unless session[:permission]
    end
 end

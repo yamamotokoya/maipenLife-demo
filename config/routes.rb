@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :login, only: [:new, :create]
   resources :secound_login, only: [:new, :create]
   resources :admin_users
+  get 'menu', to: 'menu#index', as: 'menu'
   post 'likes', to: "likes#create"
   delete 'likes/:id', to: "likes#destroy"
   get 'new/:id', to: "videos#new", as: 'new_video'
