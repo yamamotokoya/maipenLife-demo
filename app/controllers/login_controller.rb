@@ -4,7 +4,7 @@ class LoginController < ApplicationController
     password = params[:password]
 
     if login?(password)
-      redirect_to root_path
+      redirect_to menu_path
     else
       render :new
     end
