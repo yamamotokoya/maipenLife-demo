@@ -1,5 +1,4 @@
 class VideosController < ApplicationController
-  before_action :check_admin, except: :index   
 
   def index
     @videos = Video.all 
@@ -44,9 +43,4 @@ class VideosController < ApplicationController
     def video_params
       params.require(:video).permit(:video_url, :content, :streamer_id)
     end
-
-    def check_admin
-      redirect_to root_path unless admin_loggedin?
-    end
-
 end
