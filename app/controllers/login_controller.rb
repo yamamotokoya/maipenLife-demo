@@ -10,6 +10,13 @@ class LoginController < ApplicationController
     end
   end
 
+  def destroy 
+    if session[:permission] === true 
+      session[:permission] = nil
+      redirect_to new_login_path  
+    end
+  end
+
   private 
 
   def login?(password)
