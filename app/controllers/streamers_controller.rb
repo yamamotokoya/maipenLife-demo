@@ -1,5 +1,5 @@
 class StreamersController < ApplicationController
-  
+
   def index 
   end
 
@@ -12,7 +12,7 @@ class StreamersController < ApplicationController
     @streamer = Streamer.new(streamer_params)
 
     if @streamer.save
-      redirec_to root_path 
+      redirect_to root_path 
     else
       render :new
     end
