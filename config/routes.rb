@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: 'streamers#index'
   resources :streamers, only: [:index, :new, :create, :show,:edit, :update, :destroy]
   get 'all_streamers', to: 'streamers#all_streamers'
+  get 'all_videos', to: 'videos#all_videos'
   resources :videos, only: [:index, :create, :show, :edit, :update, :destroy]
   resources :root_admin_users, only: [:index,:new, :create, :destroy]
   resources :login, only: [:new, :create]

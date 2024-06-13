@@ -1,0 +1,17 @@
+<div>
+  <%@videos.each do |video|%>
+    <ul class="list-group all-streamers-list">
+      <li class="list-group-item">
+        <%=link_to video.video_url, edit_video_path(video) %>
+        <button type="button" class="btn btn-danger streamer-delete-btn">
+          <%= link_to "削除", video_path(video), method: :delete, data: {confirm: "削除してもよろしいですか？"} %>
+        </button>
+      </li>
+      <li class="list-group-item">
+        <%=link_to "動画追加", new_video_path(video.streamer_id) %>
+      </li>
+    </ul>
+  <%end%>
+
+  <%= render partial: "shared/back_to_menu_btn" %>
+</div>

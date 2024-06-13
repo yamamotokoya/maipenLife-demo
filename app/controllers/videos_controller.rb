@@ -39,6 +39,10 @@ class VideosController < ApplicationController
     redirect_to request.referer
   end
 
+  def all_videos 
+    @videos = Video.all 
+  end
+
   private 
     def video_params
       params.require(:video).permit(:video_url, :content, :streamer_id)
