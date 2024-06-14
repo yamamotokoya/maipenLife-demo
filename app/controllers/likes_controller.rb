@@ -3,7 +3,8 @@ class LikesController < ApplicationController
 
   def create 
     like = Like.new(like_params)
-    like.user_id = session[:user_id]
+    user = User.find(session[:user_id])
+    like.user_id = user.id
 
     if like.save 
       render json: {data: like}
