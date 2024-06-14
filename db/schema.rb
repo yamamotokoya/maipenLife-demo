@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_05_23_054651) do
+ActiveRecord::Schema.define(version: 2024_06_14_025204) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string "name"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2024_05_23_054651) do
     t.integer "video_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
     t.index ["video_id"], name: "index_likes_on_video_id"
   end
 
@@ -35,6 +36,11 @@ ActiveRecord::Schema.define(version: 2024_05_23_054651) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "avatar"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "videos", force: :cascade do |t|
