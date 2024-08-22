@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_08_22_060634) do
+ActiveRecord::Schema.define(version: 2024_08_22_061106) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string "name"
@@ -47,6 +47,15 @@ ActiveRecord::Schema.define(version: 2024_08_22_060634) do
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "video_genre_relations", force: :cascade do |t|
+    t.integer "video_id"
+    t.integer "genre_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["genre_id"], name: "index_video_genre_relations_on_genre_id"
+    t.index ["video_id"], name: "index_video_genre_relations_on_video_id"
   end
 
   create_table "videos", force: :cascade do |t|
