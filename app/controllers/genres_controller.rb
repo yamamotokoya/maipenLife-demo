@@ -1,4 +1,20 @@
 class GenresController < ApplicationController
+
+  def index 
+    @genres = Genre.all 
+    render json: 
+    ActiveModel::Serializer::CollectionSerializer.new
+    (
+      @genres,
+      serializer: GenreSerializer
+    ).to_json
+  end
+
+  def show 
+    @genre = Genre.find(params[:id])
+    render json: @genre, serializer: GenreSerializer
+  end
+
   def new
     @genre = Genre.new 
   end
@@ -6,6 +22,13 @@ class GenresController < ApplicationController
   def create 
     @genre = Genre.new(genre_params)
     @genre.save 
+    redirect_to root_path
+  end
+
+  def destroy
+    @genre = Genre.find(params[:id])
+    @genre.delete
+    redirect_to root_path  
   end
 
   private 

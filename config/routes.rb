@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'all_streamers', to: 'streamers#all_streamers'
   get 'all_videos', to: 'videos#all_videos'
   resources :videos, only: [:index, :create, :show, :edit, :update, :destroy]
-  resources :genres, only: [:new, :create]
+  resources :genres, only: [:index, :show, :new, :create, :destroy]
   resources :root_admin_users, only: [:index,:new, :create, :destroy]
   resources :login, only: [:new, :create]
   delete "logout", to: "login#destroy", as: "logout"

@@ -1,0 +1,7 @@
+<%= form_with url: genres_path, local: true, class: "first_login_form" do |form| %>
+
+  <%= form.text_field :name, placeholder: "ジャンル名", class: "first_login_form__password_field" %>
+
+  <%= form.submit "送信", class: "first_login_form__submit" %>
+  
+<% end %>
