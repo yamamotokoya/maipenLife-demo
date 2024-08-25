@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'all_videos', to: 'videos#all_videos'
   resources :videos, only: [:index, :create, :show, :edit, :update, :destroy]
   resources :genres, only: [:index, :show, :new, :create, :destroy]
+  get 'index/admin', to: 'genres#index_for_admin', as: 'genres_admin'
+  get 'show/:id/admin', to: 'genres#show_for_admin', as: 'genre_admin'
   resources :root_admin_users, only: [:index,:new, :create, :destroy]
   resources :login, only: [:new, :create]
   delete "logout", to: "login#destroy", as: "logout"

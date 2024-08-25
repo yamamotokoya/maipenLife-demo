@@ -5,9 +5,17 @@ class GenresController < ApplicationController
     render json: @genres, serializer: GenreSerializer
   end
 
+  def index_for_admmin 
+    @genres = Genre.all 
+  end
+
   def show 
     @genre = Genre.find(params[:id])
     render json: @genre, serializer: GenreSerializer
+  end
+
+  def show_for_admin
+    @genre = Genre.find(params[:id])
   end
 
   def new
