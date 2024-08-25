@@ -2,12 +2,7 @@ class GenresController < ApplicationController
 
   def index 
     @genres = Genre.all 
-    render json: 
-    ActiveModel::Serializer::CollectionSerializer.new
-    (
-      @genres,
-      serializer: GenreSerializer
-    ).to_json
+    render json: @genres, serializer: GenreSerializer
   end
 
   def show 
