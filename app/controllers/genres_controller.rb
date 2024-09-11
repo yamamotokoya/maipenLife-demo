@@ -5,7 +5,7 @@ class GenresController < ApplicationController
     render json: @genres, serializer: GenreSerializer
   end
 
-  def index_for_admmin 
+  def index_for_admin 
     @genres = Genre.all 
   end
 
