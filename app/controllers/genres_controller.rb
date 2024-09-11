@@ -30,7 +30,7 @@ class GenresController < ApplicationController
 
   def destroy
     @genre = Genre.find(params[:id])
-    @genre.delete
+    @genre.destroy
     redirect_to root_path  
   end
 

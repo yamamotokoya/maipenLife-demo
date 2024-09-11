@@ -35,7 +35,7 @@ class VideosController < ApplicationController
 
   def destroy 
     @video = Video.find(params[:id])
-    @video.delete 
+    @video.destroy 
     redirect_to request.referer
   end
 
