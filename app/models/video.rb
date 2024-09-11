@@ -3,7 +3,7 @@ class Video < ApplicationRecord
   belongs_to :streamer
   has_many :likes, dependent: :destroy 
   has_many :video_genre_relations
-  has_many :genres, through: :video_genre_relations  
+  has_many :genres, through: :video_genre_relations, dependent: :destroy 
 
   scope :search, ->(word) do
     where("name LIKE ?", "%#{word}%").
