@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'secound_login/new'
   get 'secound_login/create'
-  root to: 'streamers#index'
+  root to: 'login#new'
   resources :streamers, only: [:index, :new, :create, :show,:edit, :update, :destroy]
   get 'all_streamers', to: 'streamers#all_streamers'
   get 'all_videos', to: 'videos#all_videos'
