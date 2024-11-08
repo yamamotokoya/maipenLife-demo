@@ -3,10 +3,4 @@ class MenuController < ApplicationController
   
   def index 
   end
-
-  private 
-
-  def check_permission
-    redirect_to new_login_path unless session[:permission]
-  end
 end
