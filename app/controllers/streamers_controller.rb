@@ -1,4 +1,5 @@
 class StreamersController < ApplicationController
+  before_action :check_permission, only: [:new, :create, :edit, :update, :destroy, :all_streamers]
 
   def index 
   end
