@@ -1,4 +1,5 @@
 class VideosController < ApplicationController
+  before_action :check_permission, except: :index
 
   def index
     @videos = Video.all 

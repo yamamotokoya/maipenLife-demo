@@ -1,4 +1,5 @@
 class GenresController < ApplicationController
+  before_action :check_permission, except: [:index,:show]
 
   def index 
     @genres = Genre.all 
